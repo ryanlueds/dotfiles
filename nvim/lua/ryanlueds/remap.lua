@@ -12,6 +12,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+vim.keymap.set('n', '<leader>td', function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true })
+
 vim.keymap.set("n", "<leader>E", "<cmd>lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "<leader>o", "o<Esc>0\"_D")
 vim.keymap.set("n", "<leader>O", "O<Esc>0\"_D")
@@ -51,7 +55,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+-- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])   look up what this do
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
