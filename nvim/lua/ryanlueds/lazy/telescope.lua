@@ -10,18 +10,6 @@ return {
     config = function()
         require('telescope').setup({})
 
-        vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
@@ -38,18 +26,45 @@ return {
         end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
-        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "none" })
-        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+        vim.keymap.set('n', '<C-F>', function()
+            local current_word = ""
+            local search_str = vim.fn.input("Search for: ", current_word, "file")
+            local replace_str = vim.fn.input("Replace with: ")
+
+            local buf = vim.api.nvim_get_current_buf()
+            local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+
+            for i, line in ipairs(lines) do
+                lines[i] = string.gsub(line, search_str, replace_str)
+            end
+
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+            print("Replaced occurrences of '" .. search_str .. "' with '" .. replace_str .. "' in the current buffer.")
+        end, {})
+
+
+
+        vim.keymap.set('n', '<leader>ra', function()
+            vim.ui.input({ prompt = "Search for: " }, function(string_one)
+                if not string_one or string_one == "" then
+                    return
+                end
+                vim.ui.input({ prompt = "Replace with: " }, function(string_two)
+                    if not string_two then
+                        return
+                    end
+                    local command = 'cfdo %s/' .. string_one .. '/' .. string_two .. '/ge | update | bd'
+                    vim.cmd(command)
+                    print("Executed: " .. command)
+                end)
+            end)
+        end, {})
+
+
+
+
+
     end
 }
 
