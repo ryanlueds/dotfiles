@@ -1,7 +1,8 @@
 # MacOS Dotfiles
 
-## Desktop
+## Dekstop
 ![alt text](https://github.com/ryanlueds/dotfiles/blob/main/images/desktop.png "Macos Rice")
+![alt text](https://github.com/ryanlueds/dotfiles/blob/main/images/desktop_teto.png "Macos Rice and Teto")
 
 ## Things used
 * **[Aerospace](https://aerospace.org/)**: MacOS Exclusive
