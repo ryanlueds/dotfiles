@@ -74,14 +74,15 @@ return {
                 flavour = "macchiato",
                 transparent_background = true,
                 term_colors = true,
-                italic=false,
+                no_italic = true,
+                no_bold = true,
+                no_underline = true,
+                integrations = {
+                    treesitter = true,
+                },
             })
+
             vim.cmd.colorscheme('catppuccin')
-
-
-            vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#CD9EFC' })
-            vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#BABBF6' })
-            vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#BABBF6' })
         end,
     }
     -- {
