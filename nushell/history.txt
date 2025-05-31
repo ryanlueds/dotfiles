@@ -541,3 +541,117 @@ ls -a
 rm .DS_Store
 ls
 git status
+git add .
+git commit -m "switched zsh to nushell, feeling adventurous"
+ls
+cd nushell/
+cd
+nvim
+echo $env.NVM_DIR
+nvim
+nvm -v
+nvim .zshrc
+tmux
+ls
+cd modules
+ls
+cd ../..
+ls
+nvim starship.toml
+ls
+cd fastfetch/
+ls
+python color.py
+conda install tk
+ls
+python color.py
+python
+cd
+nvim .zshrc
+which python
+python
+echo $env.CONDA_PREFIX
+echo $env.PATH
+which python
+conda info
+conda activate base
+conda install tk
+which python
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim config.jsonc
+fastfetch
+nvim ascii/teto_colored.txt
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+nvim color.py
+python color.py
+fastfetch
+nvim config.jsonc
+fastfetch
+ls
+cd fastfetch/
+ls
+nvim color.py
+python color.py
+fastfetch
+nvim color.py
+nvim config.jsonc
+python color.py
+cd ascii/
+mv teto_hires.txt teto_tmp.txt
+cp teto_tmp.txt teto_hries.txt
+ls
+mv teto_hries.txt teto_hires.txt
+nvim teto_hires.txt
+cd ..
+ls
+nvim config.jsonc
+python color.py
+nvim config.jsonc
+fastfetch
+ls
+cd ascii/
+ls
+nvim teto_hires_colored.txt
+cd ..
+nvim config.jsonc
+fastfetch
+nvim config.jsonc
+fastfetch
+python color.py
+nvim color.py
+clearr
+clear
+neofetch
+fastfetch
+tmux
+brew tap FelixKratz/formulae<\n>brew install sketchybar
+mkdir -p ~/.config/sketchybar/plugins<\n>cp $(brew --prefix)/share/sketchybar/examples/sketchybarrc ~/.config/sketchybar/sketchybarrc<\n>cp -r $(brew --prefix)/share/sketchybar/examples/plugins/ ~/.config/sketchybar/plugins/
+mkdir ~/.config/sketchybar/plugins<\n>cp $(brew --prefix)/share/sketchybar/examples/sketchybarrc ~/.config/sketchybar/sketchybarrc<\n>cp -r $(brew --prefix)/share/sketchybar/examples/plugins/ ~/.config/sketchybar/plugins/
+mkdir ~/.config/sketchybar/plugins
+cp $(brew --prefix)/share/sketchybar/examples/sketchybarrc ~/.config/sketchybar/sketchybarrc
+clear
+banner
+neofetch
+clear
+tmux
+fastfetch
+chsh -s /bin/zsh

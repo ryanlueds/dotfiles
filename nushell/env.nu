@@ -44,20 +44,22 @@ $env.NU_PLUGIN_DIRS = [
 
 
 
-$env.PATH = '/Users/ryanlueder/.nvm/versions/node/v20.19.2/bin:/Users/ryanlueder/.codeium/windsurf/bin:/Users/ryanlueder/go/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Users/ryanlueder/.nvm/versions/node/v20.19.2/bin:/Users/ryanlueder/.codeium/windsurf/bin:/Users/ryanlueder/go/bin:/Users/ryanlueder/miniconda3/bin:/Users/ryanlueder/miniconda3/condabin:/Users/ryanlueder/.cargo/bin'
+# $env.PATH = '/Users/ryanlueder/.nvm/versions/node/v20.19.2/bin:/Users/ryanlueder/.codeium/windsurf/bin:/Users/ryanlueder/go/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Users/ryanlueder/.nvm/versions/node/v20.19.2/bin:/Users/ryanlueder/.codeium/windsurf/bin:/Users/ryanlueder/go/bin:/Users/ryanlueder/miniconda3/bin:/Users/ryanlueder/miniconda3/condabin:/Users/ryanlueder/.cargo/bin'
 
 $env.XDG_CONFIG_HOME = $nu.home-path | path join ".config"
+let NVM_NODE_BIN = '/Users/ryanlueder/.nvm/versions/node/v20.19.2/bin'
 
-# let user_paths = [
-#     ($env.NVM_DIR | path join 'versions' 'node' ($env.NVM_CURRENT | default 'v20.19.2') 'bin') # Using NVM_CURRENT if set, else a default
-#     '/Users/ryanlueder/go/bin'
-#     '/usr/local/go/bin'
-#     '/opt/homebrew/bin'
-#     '/opt/homebrew/sbin'
-#     '/Users/ryanlueder/.cargo/bin'
-# ]
-# 
-# $env.PATH = ($user_paths | append $env.PATH | uniq)
+
+let user_paths = [
+    $NVM_NODE_BIN
+    '/Users/ryanlueder/go/bin'
+    '/usr/local/go/bin'
+    '/opt/homebrew/bin'
+    '/opt/homebrew/sbin'
+    '/Users/ryanlueder/.cargo/bin'
+]
+
+$env.PATH = ($user_paths | append $env.PATH | uniq)
 
 const LIB_PATH = ($nu.config-path | path dirname | path join 'modules')
 source ($LIB_PATH | path join 'conda.nu')

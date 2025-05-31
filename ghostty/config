@@ -3,8 +3,10 @@
 font-size = 18
 # catpuccin-frappe
 theme = catppuccin-macchiato
+# macos-titlebar-style = hidden
+window-decoration = false
 
-# background-opacity = 0.95
+background-opacity = 0.95
 # Iosevka NF
 # 
 font-family = MesloLGS Nerd Font Mono

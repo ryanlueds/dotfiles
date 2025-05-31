@@ -74,6 +74,7 @@ return {
                 flavour = "macchiato",
                 transparent_background = true,
                 term_colors = true,
+                italic=false,
             })
             vim.cmd.colorscheme('catppuccin')
 
