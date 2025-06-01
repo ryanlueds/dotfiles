@@ -1,40 +1,40 @@
-sketchybar --add item spacer.1 left \
-	--set spacer.1 background.drawing=off \
-	label.drawing=off \
-	icon.drawing=off \
-	width=10
+#!/usr/bin/env bash
 
-for i in {0..9}; do
-	sid=$((i + 1))
-	sketchybar --add space space.$sid left \
-		--set space.$sid associated_space=$sid \
-		label.drawing=off \
-		icon.padding_left=10 \
-		icon.padding_right=10 \
-		background.padding_left=-5 \
-		background.padding_right=-5 \
-		script="$PLUGIN_DIR/space.sh"
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --all); do
+    if [ "$first" = false ]; then
+        sketchybar --add item spacer_$sid left \
+            --set spacer_$sid width=10 \
+            background.drawing=off \
+            icon.drawing=off \
+            label.drawing=off
+    fi
+    first=false
+
+    sketchybar --add item space.$sid left \
+        --subscribe space.$sid aerospace_workspace_change \
+        --set space.$sid \
+        background.color="$BAR_COLOR" \
+        background.height=26 \
+        background.corner_radius="$CORNER_RADIUS" \
+        background.border_width="$BORDER_WIDTH" \
+        background.drawing=on \
+        width=26 \
+        label.drawing=on \
+        icon.drawing=off \
+        click_script="aerospace workspace $sid" \
+        script="$PLUGIN_DIR/aerospace.sh $sid"
 done
 
-sketchybar --add item spacer.2 left \
-	--set spacer.2 background.drawing=off \
-	label.drawing=off \
-	icon.drawing=off \
-	width=5
-
-sketchybar --add bracket spaces '/space.*/' \
-	--set spaces background.border_width="$BORDER_WIDTH" \
-	background.border_color="$RED" \
-	background.corner_radius="$CORNER_RADIUS" \
-	background.color="$BAR_COLOR" \
-	background.height=26 \
-	background.drawing=on
+# Under here, looks like:
+# ( ) ( ) ( ) ( ) ( )  > ( Ghostty )
 
 sketchybar --add item separator left \
 	--set separator icon= \
 	icon.font="$FONT:Regular:16.0" \
-	background.padding_left=26 \
-	background.padding_right=15 \
+	background.padding_left=10 \
+	background.padding_right=10 \
 	label.drawing=off \
 	associated_display=active \
 	icon.color="$BLUE"

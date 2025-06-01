@@ -33,8 +33,7 @@ sketchybar --bar height=30 \
 	popup.background.shadow.drawing="$SHADOW"
 
 # Left
-# source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/aerospace.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Center (of notch)
