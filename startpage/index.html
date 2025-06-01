@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        :root {
+            --rosewater: #f4dbd6;
+            --flamingo: #f0c6c6;
+            --pink: #f5bde6;
+            --mauve: #c6a0f6;
+            --red: #ed8796;
+            --maroon: #ee99a0;
+            --peach: #f5a97f;
+            --yellow: #eed49f;
+            --green: #a6da95;
+            --teal: #8bd5ca;
+            --sky: #91d7e3;
+            --sapphire: #7dc4e4;
+            --blue: #8aadf4;
+            --lavender: #b7bdf8;
+            --text: #cad3f5;
+            --subtext1: #b8c0e0;
+            --subtext0: #a5adcb;
+            --overlay2: #939ab7;
+            --overlay1: #8087a2;
+            --overlay0: #6e738d;
+            --surface2: #5b6078;
+            --surface1: #494d64;
+            --surface0: #363a4f;
+            --base: #24273a;
+            --mantle: #1e2030;
+            --crust: #181926;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Arial', 'Verdana', sans-serif;
+            color: var(--text);
+            font-size: 12px;
+            background-image: url('./cat_youngthug.png');
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time-corner {
+            position: fixed;
+            top: 8px;
+            right: 12px;
+            font-size: 10px;
+            color: var(--subtext0);
+            z-index: 100;
+        }
+
+        .container {
+            width: 800px;
+            max-width: 90%;
+            padding: 30px;
+            background: var(--surface0);
+            border: 1px solid var(--surface1);
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            width: 400px;
+            padding: 6px 10px;
+            font-size: 13px;
+            background: var(--surface0);
+            border: 1px solid var(--surface1);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+        }
+
+        .search-input:focus {
+            outline: 1px solid var(--mauve);
+            background: var(--mantle);
+        }
+
+        .columns {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .column {
+            display: table-cell;
+            width: 33.33%;
+            vertical-align: top;
+            padding: 0 15px;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dev-header { color: var(--green); }
+        .design-header { color: var(--pink); }
+        .tools-header { color: var(--red); }
+        .misc-header { color: var(--yellow); }
+
+        .link-list {
+            list-style: none;
+            line-height: 1.6;
+        }
+
+        .link-list li {
+            margin-bottom: 3px;
+        }
+
+        .link {
+            color: var(--blue);
+            text-decoration: underline;
+            font-size: 11px;
+            display: block;
+            padding: 2px 0;
+        }
+
+        .link:hover {
+            color: var(--sky);
+            background: var(--surface0);
+            text-decoration: none;
+        }
+
+        .dev-section .link:hover { background: rgba(166, 218, 149, 0.1); }
+        .design-section .link:hover { background: rgba(245, 189, 230, 0.1); }
+        .tools-section .link:hover { background: rgba(237, 135, 150, 0.1); }
+
+        .separator {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--green) 20%, 
+                var(--pink) 50%, 
+                var(--red) 80%, 
+                transparent 100%);
+            margin: 20px 0;
+            opacity: 0.4;
+        }
+
+        .extra-links {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .extra-link {
+            color: var(--mauve);
+            text-decoration: none;
+            font-size: 10px;
+            margin: 0 8px;
+            text-transform: lowercase;
+        }
+
+        .extra-link:hover {
+            color: var(--lavender);
+            text-decoration: underline;
+        }
+
+        .glitch-text {
+            position: relative;
+        }
+
+        .retro-border {
+            border: 1px dotted var(--surface1);
+            margin: 15px 0;
+            padding: 0;
+        }
+
+        .cursor-blink::after {
+            content: '_';
+            animation: blink 1s infinite;
+            color: var(--mauve);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Subtle scan lines */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                transparent 50%, 
+                rgba(166, 218, 149, 0.02) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .columns {
+                display: block;
+            }
+            
+            .column {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+            
+            .search-input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="time-corner" id="timeCorner"></div>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input cursor-blink" placeholder="search the web" id="searchBox">
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="columns">
+            <div class="column dev-section">
+                <div class="section-header dev-header">// development</div>
+                <ul class="link-list">
+                    <li><a href="https://github.com/ryanlueds" class="link">github</a></li>
+                </ul>
+            </div>
+
+            <div class="column design-section">
+                <div class="section-header design-header">// school</div>
+                <ul class="link-list">
+                    <li><a href="https://gatech.instructure.com/" class="link">canvas</a></li>
+                    <li><a href="https://www.overleaf.com/project" class="link">overleaf</a></li>
+                </ul>
+            </div>
+
+            <div class="column tools-section">
+                <div class="section-header tools-header">// goog</div>
+                <ul class="link-list">
+                    <li><a href="https://drive.google.com" class="link">google drive</a></li>
+                    <li><a href="https://mail.google.com/mail/u/0/#inbox" class="link">gmail</a></li>
+                    <li><a href="https://docs.google.com/document/u/0/" class="link">google docs</a></li>
+                    <li><a href="https://calendar.google.com/calendar/u/0/r?pli=1" class="link">google calendar</a></li>
+                </ul>
+            </div>
+
+
+            <div class="column tools-section">
+                <div class="section-header misc-header">// misc</div>
+                <ul class="link-list">
+                    <li><a href="https://www.chess.com/home" class="link">chess</a></li>
+                    <li><a href="https://logic-masters.de/Raetselportal/Suche/spezial.php?listname=sudokus" class="link">sudoku</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="retro-border"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('timeCorner').textContent = timeString;
+        }
+
+        document.getElementById('searchBox').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_self');
+                }
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.target !== document.getElementById('searchBox') && 
+                e.key.length === 1 && 
+                !e.ctrlKey && !e.metaKey && !e.altKey) {
+                document.getElementById('searchBox').focus();
+            }
+        });
+
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>
