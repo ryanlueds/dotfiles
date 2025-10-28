@@ -1,17 +1,21 @@
 # background = 181818
 
-font-size = 18
+font-size = 16
 # catpuccin-frappe
-theme = catppuccin-macchiato
-# macos-titlebar-style = hidden
+# catppuccin-macchiato
+# theme = gruber-darker
+theme = onehalfdark
+# theme = batman
+macos-titlebar-style = hidden
 window-decoration = false
 
-background-opacity = 0.95
+# background-opacity = 0.95
 # Iosevka NF
-# 
-font-family = MesloLGS Nerd Font Mono
-cursor-style = block_hollow
+font-family = Iosevka NF
+# cursor-style = block_hollow
+# cursor-invert-fg-bg
 cursor-style-blink = false
+cursor-invert-fg-bg = true
 
 window-padding-balance = true 
 window-save-state = always
