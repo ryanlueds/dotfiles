@@ -3,8 +3,8 @@
 font-size = 16
 # catpuccin-frappe
 # catppuccin-macchiato
-# theme = gruber-darker
-theme = onehalfdark
+theme = Gruber Darker
+# theme = GitHub Dark Default
 # theme = batman
 macos-titlebar-style = hidden
 window-decoration = false
