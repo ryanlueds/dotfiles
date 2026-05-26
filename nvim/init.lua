@@ -1,17 +1,25 @@
-require('config.globals')
-require('config.options')
-require('config.keymap')
-require('config.autocmd')
-require('config.lsp')
-require('plugins.marks')
-require('plugins.treesitter')
-require('plugins.snacks')
-require('plugins.dashboard')
-require('plugins.colorify')
-require('plugins.lualine')
-require('plugins.gitsigns') -- you are going soon...
-require('plugins.typst')
--- require('plugins.gruber-darker')
-require('plugins.e-ink')
--- require('plugins.indent-blankline')
-require('plugins.oil')
+-- Enable the experimental Lua module loader.
+vim.loader.enable()
+
+-- Global variables.
+vim.g.projects_dir = vim.env.HOME .. '/Code'
+vim.g.work_projects_dir = '/Volumes/git'
+
+-- Set my colorscheme.
+vim.cmd.colorscheme 'gruber-darker'
+
+-- General setup and goodies (order matters here).
+require 'settings'
+require 'keymaps'
+require 'commands'
+require 'autocmds'
+require 'statusline'
+require 'winbar'
+require 'marks'
+require 'lsp'
+
+-- Interactive textual undotree:
+vim.cmd.packadd 'nvim.undotree'
+
+-- Enable the new experimental command-line features.
+require('vim._core.ui2').enable {}
