@@ -1,7 +1,11 @@
----@type vim.lsp.Config
+---@brief
+--- https://github.com/zigtools/zls
+---
+--- Zig LSP implementation + Zig Language Server
+
 return {
-    cmd = { 'zls' },
-    filetypes = { 'zig', 'zir' },
-    root_dir = lspconfig.util.root_pattern("build.zig", ".git") or vim.loop.cwd,
-    single_file_support = true,
+  cmd = { 'zls' },
+  filetypes = { 'zig', 'zir' },
+  root_markers = { 'zls.json', 'build.zig', '.git' },
+  workspace_required = false,
 }

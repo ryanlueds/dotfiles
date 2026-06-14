@@ -1,18 +1,24 @@
--- Install with
--- mac: brew install dprint
--- Arch: paru -S dprint
-
----@type vim.lsp.Config
+---@brief
+---
+--- https://github.com/dprint/dprint
+---
+--- Pluggable and configurable code formatting platform written in Rust.
 return {
-    cmd = { 'dprint', 'lsp' },
-    filetypes = {
-        'graphql',
-        'javascript',
-        'javascriptreact',
-        'json',
-        'jsonc',
-        'markdown',
-        'typescript',
-        'typescriptreact',
-    },
+  cmd = { 'dprint', 'lsp' },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+    'json',
+    'jsonc',
+    'markdown',
+    'python',
+    'toml',
+    'rust',
+    'roslyn',
+    'graphql',
+  },
+  root_markers = { 'dprint.json', '.dprint.json', 'dprint.jsonc', '.dprint.jsonc' },
+  settings = {},
 }
